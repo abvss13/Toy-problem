@@ -1,23 +1,20 @@
-# Function to check if exactly two out of three numbers are positive
-def two_are_positive(a, b, c):
-    # Initialize a counter to keep track of the number of positive numbers
+def two_positive(a, b, c):
     positive_count = 0
-    
-    # Check if the first number (a) is positive
+
     if a > 0:
         positive_count += 1
-        
-    # Check if the second number (b) is positive
     if b > 0:
         positive_count += 1
-        
-    # Check if the third number (c) is positive
     if c > 0:
         positive_count += 1
-        
-    # Return True if exactly two numbers are positive, otherwise return False
+
     return positive_count == 2
 
-# Example usage of the function with different sets of numbers
-print(two_are_positive(-1, 2, -4))  # Output: True (exactly two numbers are positive)
-print(two_are_positive(-1, 2, 3))   # Output: False (more than two numbers are positive)
+# Example usage:
+result1 = two_positive(2, 4, -3)
+result2 = two_positive(-4, 6, 8)
+result3 = two_positive(4, -6, 9)
+
+print(result1)  # Output: True
+print(result2)  # Output: True
+print(result3)  # Output: True

@@ -1,21 +1,20 @@
-def solve(s):
-    # Function to calculate the value of a consonant substring
-    def substring_value(substring):
-        return sum(ord(char) - ord('a') + 1 for char in substring)
-    
-    # Remove vowels from the input string
+def solve(word):
     vowels = "aeiou"
-    consonant_string = "".join(char for char in s if char not in vowels)
-    
-    # Split the consonant string into substrings
-    substrings = consonant_string.split('a')  # Using 'a' as a separator
-    
-    # Calculate the value of each consonant substring
-    values = [substring_value(substring) for substring in substrings]
-    
-    # Return the highest value among the consonant substrings
-    return max(values)
+    max_consonant_value = 0
+    current_consonant_value = 0
 
-# Examples
-print(solve("zodiacs"))    # Output: 26
-print(solve("strength"))   # Output: 57
+    for char in word:
+        if char not in vowels:
+            current_consonant_value += ord(char) - ord('a') + 1
+        else:
+            max_consonant_value = max(max_consonant_value, current_consonant_value)
+            current_consonant_value = 0
+
+    return max(max_consonant_value, current_consonant_value)
+
+# Example usage:
+result1 = solve("zodiacs")
+result2 = solve("strength")
+
+print(result1)  # Output: 26
+print(result2)  # Output: 57
